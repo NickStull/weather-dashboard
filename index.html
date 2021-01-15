@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    /> -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
+        crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="jumbotron">
+        <h1 class="display-3">Weather Dashboard</h1>
+        <p class="lead">Quick and Easy Weather</p>
+    </header>
+    <div class="container">
+        <div class="row">
+                <button class="btn btn-secondary dropdown-toggle col-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Recent
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" id="search0"></a>
+                  <hr>
+                  <a class="dropdown-item" id="search1"></a>
+                  <hr>
+                  <a class="dropdown-item" id="search2"></a>
+                  <hr>
+                  <a class="dropdown-item" id="search3"></a>
+                  <hr>
+                  <a class="dropdown-item" id="search4"></a>
+                </div>
+            <input class="form-control form-control-lg col-8" type="text" placeholder="Which city are ya lookin' for?" id="citySearch" data-toggle="popover" data-placement="bottom" data-content="mmmmm, I don't think that's a real place...">
+            <input class="btn btn-primary col-2" type="submit" value="Submit" id="searchBtn">
+        </div>
+    </div>
+    <div class="container" id="mainContent">
+        <div class="row" id=currentLoc>
+            <h1 class= "col-12" id=currentCity></h1>
+            <h2 class= "col-12" id=currentDate></h2>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12 col-md-3 centered">
+                <img src="" class="img-fluid" id="todayIcon"></img>
+            </div>
+            <div class="col-12 col-md-6 my-auto" id="todayStats">
+                <div class="row">
+                    <div class="col-12" id="todayTemp"></div>
+                </div>
+                <div class="row">
+                    <div class="col-12" id="todayHumid"></div>
+                </div>
+                <div class="row">
+                    <div class="col-12" id="todayWind"></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-3" id="todayUV">
+                <table>
+                    <tr>
+                        <th>UV Index</th>
+                    </tr>
+                    <tr>
+                        <td id="td0">0-2</td>
+                    </tr>
+                    <tr>
+                        <td id="td1">3-5</td>
+                    </tr>
+                    <tr>
+                        <td id="td2">6-7</td>
+                    </tr>
+                    <tr>
+                        <td id="td3">8-10</td>
+                    </tr>
+                    <tr>
+                        <td id="td4">11+</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row">
+            <h3 class= "col-12" style="text-align: center;">5 Day Forcast</h3>
+        </div>
+        <br>
+        <div class="row" id="forecast">
+            <div class="col-1 forecast"></div>
+            <div class="col-2 forecast">
+                <div class="card text-center">
+                    <div class="card-header" id="d0"></div>
+                    <div class="card-body">
+                        <img src="" class="card-text" id="i0"></img>
+                        <p class="card-text" id="t0"></p>
+                        <p class="card-text" id="h0"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 forecast">
+                <div class="card text-center">
+                    <div class="card-header" id="d1"></div>
+                    <div class="card-body">
+                        <img src="" class="card-text" id="i1"></img>
+                        <p class="card-text" id="t1"></p>
+                        <p class="card-text" id="h1"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 forecast">
+                <div class="card text-center">
+                    <div class="card-header" id="d2"></div>
+                    <div class="card-body">
+                        <img src="" class="card-text" id="i2"></img>
+                        <p class="card-text" id="t2"></p>
+                        <p class="card-text" id="h2"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 forecast">
+                <div class="card text-center">
+                    <div class="card-header" id="d3"></div>
+                    <div class="card-body">
+                        <img src="" class="card-text" id="i3"></img>
+                        <p class="card-text" id="t3"></p>
+                        <p class="card-text" id="h3"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 forecast">
+                <div class="card text-center">
+                    <div class="card-header" id="d4"></div>
+                    <div class="card-body">
+                        <img src="" class="card-text" id="i4"></img>
+                        <p class="card-text" id="t4"></p>
+                        <p class="card-text" id="h4"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-1 forecast"></div>
+          </div>
+    </div>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
