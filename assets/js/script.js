@@ -1,6 +1,7 @@
 var APIKey= "cec140ec03629e6d4712ae98d3d7fe30"
 var currentCity = "Hastings";
 var pastSearches = [];
+var weatherObj = {}
 $("#citySearch").popover('disable')
 
 
@@ -26,6 +27,9 @@ function getWeather(){
         method: "GET",
         error: function(){$("#citySearch").popover('enable'); $("#citySearch").popover('show')}
     }).then(function(response) {
+        // console.log(response)
+        weatherObj = response
+        // console.log(weatherObj)
 
         if (pastSearches.includes(response.name)) {
             pastSearches.splice(pastSearches.indexOf(response.name), 1);
@@ -60,6 +64,7 @@ function getWeather(){
             url: secondURL,
             method: "GET"
         }).then(function(response) {
+            console.log(response)
             $("#citySearch").popover('hide')
             $("#citySearch").popover('disable')
             for (i = 0; i < 5; i++) {
